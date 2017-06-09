@@ -7,6 +7,7 @@ abstract class OptionSet {
     var myInstance = reflect(this);
     classMirror.declarations.values
         .where((DeclarationMirror mirror) => mirror is VariableMirror)
+        .map((DeclarationMirror dm) => dm as VariableMirror)
         .forEach((VariableMirror variableMirror) {
       var metaOption = variableMirror.metadata
           .where((InstanceMirror meta) =>
